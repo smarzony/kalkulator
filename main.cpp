@@ -18,12 +18,16 @@ int main(int argc, char** argv) {
 	int dlugosc_liczby = 0;
 	float liczby[10];
 	cout<<"Podaj tekst : ";
-	getline(cin,linia);
-	linia = linia+'k';
+	getline(cin,linia);	
+	linia = linia+'\0';
 	cout<<"Podany tekst :"<<linia<<endl;
 	cout<<"Dlugosc tekstu: "<<linia.size()<<endl;
 	for(int i = 0; i<linia.size() ; i++)
 	{
+		if (linia[i]=='\\s')
+		{
+			i++;
+		}
 		cout<<endl<<linia[i];		
 		if( czyCyfra(linia, i) )
 			{
@@ -106,3 +110,4 @@ int strToInt(string linia, int dlugosc_liczby, int i)
 	}
 	return liczba;
 }
+
